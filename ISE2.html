@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <link rel="stylesheet" href="ISE2.css">
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ebebeb;
+    font-size: 60px;
+  }
+  
+  .container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 60px;
+  }
+  
+  p {
+    font-size: 60px;
+    font-weight: bold;
+  }
+</style>
+<body>
+  <div class="container">
+    <h1>Word Counter</h1>
+    <textarea id="textArea"placeholder="Enter letter" oninput="countWords()"></textarea>
+    <p>Word count: <span id="WordCount">0</span></p>
+  </div>
+</body>
+<script>
+  function countWords() {
+    const text = document.getElementById('textArea').value.trim();
+    const WordCount = text === "" ? 0 : text.split(/\s+/).length;
+    document.getElementById('WordCount').textContent = WordCount;
+  }
+  
+</script>
+</html>

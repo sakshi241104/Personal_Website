@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Search Filter</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: skyblue;
+    padding: 40px;
+    font-size: 80px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: peru;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: black;
+    font-size: 60px;
+  }
+  
+  #searchInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 60px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    font-style: italic;
+  }
+  
+  ul  {
+    padding: 10px;
+    border-bottom: 1px solid whitesmoke;
+    transition: 0.2s;
+  }
+  
+  ul :hover {
+    background-color: white;
+  }
+  p{
+    text-align: center;
+  }
+</style>
+<body>
+  <div class="container">
+    <h2>Live Search Filter</h2>
+    <input type="text" id="searchInput" placeholder="Search names..." />
+
+    <ul id="nameList">
+    </ul>
+  </div>
+  <p><img src="ise3.png" alt="live search" class="src" width="800px">
+  </p>
+</body>
+<script>
+  const searchInput = document.getElementById("searchInput");
+const nameList = document.getElementById("nameList");
+const listItems = nameList.getElementsByTagName("li");
+
+searchInput.addEventListener("input", () => {
+  const filter = searchInput.value.toLowerCase();
+
+  Array.from(listItems).forEach((item) => {
+    const text = item.textContent.toLowerCase();
+    if (text.includes(filter)) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
+</script>
+</html>
